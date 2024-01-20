@@ -1,0 +1,38 @@
+
+# Modification date: Mon Nov 28 08:50:42 2022
+
+# Production date: Sun Sep  3 15:44:14 2023
+
+import os
+
+dosya_adi = input("NOT: BU UYGULAMAYI KULLANMADAN ONCE DOSYANIZI YEDEKLEYINIZ!!!\nBosluklarin tablarla değiştirileceği dosya ismini giriniz: \n")
+
+dosyaoku = open(dosya_adi + ".txt", "r")
+
+dosyasatirlari = dosyaoku.readlines()
+
+dosyaoku.close()
+yeni_dosya_satirlari = []
+for satir in dosyasatirlari:
+	yenisatir = ""
+	for sayaç in range(0, len(satir), 4):
+		try:
+			if satir[sayaç:sayaç+4] == "    ":
+				yenisatir = yenisatir + "\t"
+			else:
+				yenisatir = yenisatir + satir[sayaç:sayaç+4]
+		except:
+			yenisatir = yenisatir + satir[sayaç:]
+	yeni_dosya_satirlari.append(yenisatir)
+
+print(yeni_dosya_satirlari)
+
+yepyenidosya = open(dosya_adi + "_edited.txt", "w")
+
+for satir in yeni_dosya_satirlari:
+	yepyenidosya.write(satir)
+
+yepyenidosya.close()
+#print(dosyasatirlari)
+
+

@@ -1,0 +1,93 @@
+"""
+fichier = open("villes.csv", "r", encoding = "utf-8", errors = "ignore")
+lecteurCSV = csv.reader(fichier, delimiter = ";")
+villes = []
+for row in lecteurCSV:
+  villes.append(row)
+
+fichier.close()
+
+-----------------------------------------------------------------------------------------
+
+# open the file in the write mode
+f = open('path/to/csv_file', 'w')
+
+# create the csv writer
+writer = csv.writer(f)
+
+# write a row to the csv file
+writer.writerow(row)
+
+# close the file
+f.close()
+
+
+
+-----------------------------------------------------------------------------------------
+
+# csv header
+fieldnames = ['name', 'area', 'country_code2', 'country_code3']
+
+# csv data
+rows = [
+    {'name': 'Albania',
+    'area': 28748,
+    'country_code2': 'AL',
+    'country_code3': 'ALB'},
+    {'name': 'Algeria',
+    'area': 2381741,
+    'country_code2': 'DZ',
+    'country_code3': 'DZA'},
+    {'name': 'American Samoa',
+    'area': 199,
+    'country_code2': 'AS',
+    'country_code3': 'ASM'}
+]
+
+with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerows(rows)
+
+
+-----------------------------------------------------------------------------------------
+
+
+
+header = ['name', 'area', 'country_code2', 'country_code3']
+data = [
+    ['Albania', 28748, 'AL', 'ALB'],
+    ['Algeria', 2381741, 'DZ', 'DZA'],
+    ['American Samoa', 199, 'AS', 'ASM'],
+    ['Andorra', 468, 'AD', 'AND'],
+    ['Angola', 1246700, 'AO', 'AGO']
+]
+
+with open('countries.csv', 'w', encoding='UTF8', newline='') as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    # write multiple rows
+    writer.writerows(data)
+
+
+-----------------------------------------------------------------------------------------
+
+
+
+header = ['name', 'area', 'country_code2', 'country_code3']
+data = ['Afghanistan', 652090, 'AF', 'AFG']
+
+with open('countries.csv', 'w', encoding='UTF8') as f:
+    writer = csv.writer(f)
+
+    # write the header
+    writer.writerow(header)
+
+    # write the data
+    writer.writerow(data)
+
+
+"""
